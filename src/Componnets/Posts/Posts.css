@@ -1,0 +1,14 @@
+.main_posts {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 425px) {
+    .main_posts {
+        width: 400px;
+    }
+
+}

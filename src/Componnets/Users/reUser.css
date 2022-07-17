@@ -1,0 +1,47 @@
+.card_user {
+    display: block;
+    width: 550px;
+    height: 250px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(102, 169, 224);
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+@media screen and (max-width: 425px) {
+    .card_user {
+        width: 400px;
+    }
+
+}
+
+.card_user:hover {
+    box-shadow: 0 10px 60px rgb(0 0 0 / 0.2);
+}
+
+.user_img {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user_logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.user_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-weight: 700;
+}
+
+.info {
+    font-weight: 500;
+}
