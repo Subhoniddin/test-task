@@ -3,13 +3,21 @@ const axios = require("axios").default;
 export const SET_POST = "SET_REPOST";
 export const SET_USER = "SET_USER";
 export const SET_PHOTOS = "SET_PHOTOS";
+export const SET_POST_COUNT = "SET_POST_COUNT";
 
-export const getReposte = () => {
+export const getReposte = (page = 1) => {
   return async (dispatch) => {
+    let size = 10;
+
     const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts?page=10&count=20"
+      "https://jsonplaceholder.typicode.com/posts?page=" + page
     );
-    dispatch({ type: SET_POST, payload: response.data });
+
+    dispatch({
+      type: SET_POST,
+      payload: response.data.splice(page * size - size, size),
+    });
+    dispatch({ type: SET_POST_COUNT, payload: response.data.length / size });
   };
 };
 

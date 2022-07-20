@@ -1,4 +1,9 @@
-import { SET_PHOTOS, SET_POST, SET_USER } from "../action/repost";
+import {
+  SET_PHOTOS,
+  SET_POST,
+  SET_POST_COUNT,
+  SET_USER,
+} from "../action/repost";
 
 const defaultSate = {
   item: [],
@@ -7,6 +12,7 @@ const defaultSate = {
   isFetching: true,
   pageSize: 10,
   totalPhotosCout: 0,
+  totalPostsCount: 0,
   curentPage: [],
 };
 
@@ -18,6 +24,11 @@ export default function repostReduser(state = defaultSate, action) {
       return repost(state, action);
     case SET_USER:
       return reUser(state, action);
+    case SET_POST_COUNT:
+      return {
+        ...state,
+        totalPostsCount: action.payload,
+      };
     default:
       return state;
   }

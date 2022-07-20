@@ -3,10 +3,20 @@ import * as React from "react";
 import { Stack } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import "./Footer.css";
-const Footer = () => {
+import { useSelector } from "react-redux";
+const Footer = ({ currentPage, onPageChange }) => {
+  const postsCount = useSelector((state) => state.repos.totalPostsCount);
+
   return (
     <Stack spacing={2}>
-      <Pagination onChange={(e, page) => {console.log(page)}} count={10} color="primary" />
+      <Pagination
+        onChange={(e, page) => {
+          onPageChange(page);
+        }}
+        count={postsCount}
+        color="primary"
+        page={currentPage}
+      />
     </Stack>
   );
 };
